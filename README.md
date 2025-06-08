@@ -6,7 +6,6 @@ This repository contains a minimal example of a Model Context Protocol (MCP) ser
 
 - Node.js 22 or later
 - npm
-- MongoDB (local instance or connection string via `MONGO_URI`)
 - An OpenAI API key (`OPENAI_API_KEY`)
 
 ## Installation
@@ -24,12 +23,6 @@ npm run build
 ```
 
 ## Running the Server
-
-Start a MongoDB instance (for example via Docker Compose):
-
-```bash
-docker-compose up -d mongo
-```
 
 Run the server:
 
@@ -52,7 +45,5 @@ This will create TODO items using the server and print them on completion.
 
 ## Environment Variables
 
-- `MONGO_URI` – MongoDB connection string (default: `mongodb://localhost:27017`)
-- `DB_NAME` – database name (default: `mcp_todo`)
 - `OPENAI_API_KEY` – API key for OpenAI used by the agent
 
