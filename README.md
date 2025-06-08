@@ -1,58 +1,63 @@
-# MCP Todo Example
 
-This repository contains a minimal example of a Model Context Protocol (MCP) server with a small TODO application. It demonstrates how to build a server exposing tools and resources over MCP and how to drive it via a client agent using OpenAI's API.
+# MCP TODO サンプル
 
-## Prerequisites
+このリポジトリは Model Context Protocol (MCP) を用いた簡単な TODO サーバーの例です。OpenAI API を利用するエージェントから MCP を介してツールやリソースを操作する方法を示します。
 
-- Node.js 22 or later
+## 必要条件
+
+- Node.js 22 以降
 - npm
-- MongoDB (local instance or connection string via `MONGO_URI`)
-- An OpenAI API key (`OPENAI_API_KEY`)
+- MongoDB (ローカル環境または `MONGO_URI` で指定)
+- OpenAI API キー (`OPENAI_API_KEY`)
 
-## Installation
+## インストール
 
-Install the dependencies:
+依存パッケージをインストールします:
+
 
 ```bash
 npm install
 ```
 
-Compile the TypeScript sources:
+この作業にはインターネット接続が必要です。
+
+TypeScript ソースをビルドします:
+
 
 ```bash
 npm run build
 ```
 
-## Running the Server
+## サーバーの起動
 
-Start a MongoDB instance (for example via Docker Compose):
+MongoDB を起動します (Docker Compose を使用する例):
 
 ```bash
 docker-compose up -d mongo
 ```
 
-Run the server:
+
+次にサーバーを実行します:
 
 ```bash
 node dist/server.js
 ```
 
-The server exposes tools and resources via MCP over stdio.
 
-## Running the Agent
+サーバーは MCP 経由でツールとリソースを提供します。
 
-The agent uses OpenAI's API to generate TODO items and send them to the server.
-Set the `OPENAI_API_KEY` environment variable and run:
+## エージェントの実行
+
+エージェントは OpenAI API を使って TODO 項目を生成し、サーバーに送信します。`OPENAI_API_KEY` を環境変数に設定して実行してください:
 
 ```bash
-OPENAI_API_KEY=your-key node dist/agent.js "買い物の準備をする"
+OPENAI_API_KEY=あなたのキー node dist/agent.js "買い物の準備をする"
 ```
 
-This will create TODO items using the server and print them on completion.
+これにより TODO 項目が作成され、完了後に表示されます。
 
-## Environment Variables
+## 環境変数
 
-- `MONGO_URI` – MongoDB connection string (default: `mongodb://localhost:27017`)
-- `DB_NAME` – database name (default: `mcp_todo`)
-- `OPENAI_API_KEY` – API key for OpenAI used by the agent
-
+- `MONGO_URI` – MongoDB 接続文字列 (デフォルト: `mongodb://localhost:27017`)
+- `DB_NAME` – データベース名 (デフォルト: `mcp_todo`)
+- `OPENAI_API_KEY` – OpenAI の API キー
