@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "test": "npm run build && node --test"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
