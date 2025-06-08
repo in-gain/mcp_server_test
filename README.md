@@ -1,4 +1,3 @@
-
 # MCP TODO サンプル
 
 このリポジトリは Model Context Protocol (MCP) を用いた簡単な TODO サーバーの例です。OpenAI API を利用するエージェントから MCP を介してツールやリソースを操作する方法を示します。
@@ -7,7 +6,6 @@
 
 - Node.js 22 以降
 - npm
-- MongoDB (ローカル環境または `MONGO_URI` で指定)
 - OpenAI API キー (`OPENAI_API_KEY`)
 
 ## インストール
@@ -30,17 +28,10 @@ npm run build
 
 ## サーバーの起動
 
-MongoDB を起動します (Docker Compose を使用する例):
-
-```bash
-docker-compose up -d mongo
-```
-
-
 次にサーバーを実行します:
 
 ```bash
-node dist/server.js
+npm start
 ```
 
 
@@ -58,6 +49,4 @@ OPENAI_API_KEY=あなたのキー node dist/agent.js "買い物の準備をす�
 
 ## 環境変数
 
-- `MONGO_URI` – MongoDB 接続文字列 (デフォルト: `mongodb://localhost:27017`)
-- `DB_NAME` – データベース名 (デフォルト: `mcp_todo`)
 - `OPENAI_API_KEY` – OpenAI の API キー
