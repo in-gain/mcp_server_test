@@ -48,6 +48,14 @@ OPENAI_API_KEY=あなたのキー node dist/agent.js "買い物の準備をす�
 これにより TODO 項目が作成され、完了後に表示されます。
 
 
+## テスト
+
+Node.js 組み込みのテストランナーで簡単なユニットテストを実行できます:
+
+```bash
+npm test
+```
+
 ## 環境変数
 
 - `OPENAI_API_KEY` – OpenAI の API キー
