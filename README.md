@@ -48,6 +48,23 @@ OPENAI_API_KEY=あなたのキー node dist/agent.js "買い物の準備をす�
 これにより TODO 項目が作成され、完了後に表示されます。
 
 
+## 実行例
+
+実際のコマンド例を以下に示します。まずサーバーを起動します:
+
+```bash
+$ npm start
+MCP server listening...
+```
+
+続いてエージェントを実行すると TODO が追加されます:
+
+```bash
+$ OPENAI_API_KEY=あなたのキー node dist/agent.js "買い物の準備をする"
+📌 Added TODOs: [{ title: "..." }, ...]
+```
+
+
 ## 環境変数
 
 - `OPENAI_API_KEY` – OpenAI の API キー
