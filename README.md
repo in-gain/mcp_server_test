@@ -6,6 +6,7 @@
 
 - Node.js 22 以降
 - npm
+
 - OpenAI API キー (`OPENAI_API_KEY`)
 
 ## インストール
@@ -34,7 +35,6 @@ npm run build
 npm start
 ```
 
-
 サーバーは MCP 経由でツールとリソースを提供します。
 
 ## エージェントの実行
@@ -46,6 +46,7 @@ OPENAI_API_KEY=あなたのキー node dist/agent.js "買い物の準備をす�
 ```
 
 これにより TODO 項目が作成され、完了後に表示されます。
+
 
 ## 環境変数
 
