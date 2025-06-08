@@ -17,9 +17,6 @@ Install the dependencies:
 npm install
 ```
 
-An active internet connection is required for this step so npm can download
-packages from the public registry.
-
 Compile the TypeScript sources:
 
 ```bash
