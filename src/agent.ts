@@ -1,12 +1,12 @@
-import { spawn } from "node:child_process";
 import OpenAI from "openai";
-import { McpClient } from "@modelcontextprotocol/sdk/client/mcp.js";
+import { Client as McpClient } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 
 (async () => {
-  const server = spawn("node", ["./dist/server.js"], { stdio: ["pipe","pipe","inherit"] });
-  const client = new McpClient();
-  await client.connect(new StdioClientTransport(server.stdin!, server.stdout!));
+  const client = new McpClient({ name: "Todo Agent", version: "0.1.0" });
+  await client.connect(
+    new StdioClientTransport({ command: "node", args: ["./dist/server.js"] })
+  );
 
   const llm = new OpenAI();
   const user = process.argv.slice(2).join(" ");
@@ -20,8 +20,7 @@ JSON で {"title": "..."} 配列のみ返してください (最大5件)。`;
   });
   const todos: { title: string }[] = JSON.parse(rsp.choices[0].message.content ?? "");
 
-  for (const t of todos) await client.callTool("todo.create", t);
+  for (const t of todos) await client.callTool({ name: "todo.create", arguments: t });
 
   console.log("\ud83d\udccc Added TODOs:", todos);
-  server.kill();
 })();
