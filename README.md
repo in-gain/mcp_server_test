@@ -1,3 +1,4 @@
+
 # MCP TODO サンプル
 
 このリポジトリは Model Context Protocol (MCP) を用いた簡単な TODO サーバーの例です。OpenAI API を利用するエージェントから MCP を介してツールやリソースを操作する方法を示します。
@@ -13,6 +14,7 @@
 
 依存パッケージをインストールします:
 
+
 ```bash
 npm install
 ```
@@ -20,6 +22,7 @@ npm install
 この作業にはインターネット接続が必要です。
 
 TypeScript ソースをビルドします:
+
 
 ```bash
 npm run build
@@ -33,11 +36,13 @@ MongoDB を起動します (Docker Compose を使用する例):
 docker-compose up -d mongo
 ```
 
+
 次にサーバーを実行します:
 
 ```bash
 node dist/server.js
 ```
+
 
 サーバーは MCP 経由でツールとリソースを提供します。
 
